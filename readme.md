@@ -1,23 +1,48 @@
-READ_ME
-Computer Graphics
-Assignment 2
+# C and Open-GL Ray Tracing Implementation
 
-Gavin Waite - s1208506
+The University of Edinburgh
 
-#0 CONTENTS
+**Originally Coursework** : Computer Graphics
+
+**Author** : Gavin Waite
+
+Winter 2016
+
+**Grade received**: A 
+
+Confirmed to be working on macOS as of 2020-01-15
+
+# Description
+
+This project was the second coursework for the Computer Graphics class in my 4th year at The University of Edinburgh. The original requirements and brief are found at `Documentation/CW2_readme.pdf`.
+
+The task was to implement, using C++, an OpenGL raytracing algorithm with shadows, Phong illumination and reflections. Scenes could then be produced by defining 3D shapes and their material properties.
+
+I produced 5 scenes for examples and screenshots of this output is given in the below README.
+
+# README
 1 - How to compile
+
 2 - Features
+
 3 - Control panel and parameters of interest
+
 4 - Screenshots (in Documentation/Screenshots)
+
 5 - Log of implementation
 
-#1 How to compile:
+## 1. How to compile:
 
-Navigate to directory ~/cw2_handout
+***IMPORTANT*** : First go to the makefile and select the correct value of libs depending on your platform. Tested on macOS and the university Linux machines.
+In root directory of project
+
 > make run
-// See #3 for details on how to change the scene
 
-#2 Features
+You should see the first example scene of a green ball, triangular mirror and colored walls.
+
+See # 3 for details on how to change the scene
+
+## 2. Features
 
 - OpenGL RayCasting implementation
 - Supported object primitives: Sphere, Plane, Triangle
@@ -26,21 +51,50 @@ Navigate to directory ~/cw2_handout
 Additional features
 - Extra primitive: Axis-aligned bounding box
 
-#3 Control panel and parameters of interest
+## 3. Control panel and parameters of interest
 
-In the file 'demo.cpp' at line 304+ there is a section called 'CONTROL PANEL'.
+In the file `demo.cpp` at line 304+ there is a section called `CONTROL PANEL`.
 This is where the various render parameters and options can easily be tweaked.
 
-lightPos - a vec3 which sets the position of the point light source
-activateShadows - determines whether to display the shadows. If Phong is disabled then these are pure black, else they are the ambient colour of the material
-activatePhong - turns on local Phong illumination calculations
-activateReflections - turns on reflections
-maxReflections - determines the maximum number of bounces that a reflection ray can do
-scene - this selects which objects to populate the scene with. Brief descriptions are given and the full code is just below.
+`lightPos` - a `vec3` which sets the position of the point light source
 
-#4 Screenshots of implementation
+`activateShadows` - determines whether to display the shadows. If Phong is disabled then these are pure black, else they are the ambient colour of the material
 
-In the folder /Documentation/Screenshots I included screenshots of various stages in the implementation
+`activatePhong` - turns on local Phong illumination calculations
+
+`activateReflections` - turns on reflections
+
+`maxReflections` - determines the maximum number of bounces that a reflection ray can do
+
+`scene` - this selects which objects to populate the scene with. Brief descriptions are given and the full code is just below.
+
+## 4. Screenshots of implementation
+
+In the folder /Documentation/Screenshots I have included screenshots of various stages in the implementation.
+
+The final screenshots are shown below:
+
+![Scene 1: Sphere and Mirror in room](Documentation/Screenshots/13_FinalScene1.png)
+
+>A green shiny sphere and a grey triangular mirror in a room with a mirror at the back
+
+![Scene 2: Sphere and Mirror in room](Documentation/Screenshots/14_FinalScene2.png)
+
+> In the same room, a large shiny sphere reflects a small red sphere
+
+![Scene 3: Sphere and Mirror in room](Documentation/Screenshots/16_FinalScene3.png)
+
+> A 'face' behind the camera is reflected in the backwall mirror and a small triangular mirror
+
+![Scene 4: Sphere and Mirror in room](Documentation/Screenshots/17_FinalScene4.png)
+
+> A 'face' is in a room of mirrors so is reflected many times
+
+![Scene 5: Sphere and Mirror in room](Documentation/Screenshots/18_FinalScene5.png)
+
+> A shiny green cube is on the left side of the room
+
+### Full list of screenshots
 
 1. First working scene. Just block colours when an intersect is found
 2. Added basic shadowRay implemnetation
@@ -61,7 +115,7 @@ In the folder /Documentation/Screenshots I included screenshots of various stage
 17. The final scene 4 - A 'face' is in a room of mirrors so is reflected many times
 18. The final scene 5 - A shiny green cube is on the left side of the room
 
-#5 Log of implementation
+## 5. Log of implementation
 
 1. Changed the makefile to 'Demo2' instead of 'Demo1' which was preventing it from compiling
 2. Extended Object for Sphere and Plane
